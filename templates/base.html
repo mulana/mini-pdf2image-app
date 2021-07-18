@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
   <link rel="stylesheet" type="text/css" href="{% static 'css/app.css' %}">
   <title>{% block title %}Wefunder{% endblock %}</title>
 </head>
@@ -45,5 +46,7 @@
       </div>
     </div>
   </div>
+  <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+  {% block javascript %}{% endblock %}
 </body>
 </html>

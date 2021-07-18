@@ -5,7 +5,9 @@
 {% for pitch_deck in object_list %}
 <div class="pitch_deck">
 <h3>{{ pitch_deck.title }}</h3>
-<a href="{{ pitch_deck.presentation_file.url }}">download</a>
+<a href="{{ pitch_deck.presentation_file.url }}" class="btn-outline-primary"><i class="bi bi-download"></i> Download</a>
+<a class="delete btn-outline-danger" data-object-id="{{ pitch_deck.id }}"><i class="bi bi-trash"></i> Delete</a>
+
 <ul class="my-image-list">
   <li>
     {% for deck_image in pitch_deck.deck_images.all %}
@@ -19,4 +21,34 @@
 </div>
 {% endfor %}
 
+{% endblock %}
+
+{% block javascript %}
+<script>
+    $('a.delete').on('click', function(){
+        let confirmation = confirm("Are you sure you want to remove the item?");
+        if (confirmation) {
+            let deckId = $(this).attr('data-object-id');
+            $.ajax({
+                url: `${deckId}/delete/`,
+                data: {
+                    'csrfmiddlewaretoken': "{{ csrf_token }}"
+                },
+                type: "POST",
+                dataType: "json"
+            }).done(
+                function(){
+                    alert("Deleted");
+                    // Quick and dirty (otherwise delete from DOM)
+                    window.location.reload();
+                }
+            ).fail(
+                function(err) {
+                    console.error(err);
+                }
+            )
+        }
+        return false;
+    });
+</script>
 {% endblock %}
