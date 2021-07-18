@@ -11,8 +11,8 @@ class PitchDeck(models.Model):
 
 class DeckImage(models.Model):
     pitch_deck = models.ForeignKey(PitchDeck, on_delete=models.CASCADE)
-    title1 = models.TextField()
+    title = models.TextField()
     slide = models.ImageField(upload_to='images/')
 
     def __str__(self):
-        return self.title1
+        return self.title
