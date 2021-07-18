@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Home Page</h1>
+
+<ul>
+---
+  {% for pitch_deck in object_list %}
+    <h2>{{ pitch_deck.title }}</h2>
+    <p>
+        <a href="{{ pitch_deck.presentation_file.url}}">{{ pitch_deck.title }}</a>
+    </p>
+  {% endfor %}
+</ul>
+
+{% endblock %}

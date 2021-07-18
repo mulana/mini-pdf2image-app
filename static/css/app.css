@@ -1,0 +1,15 @@
+h2 {
+  text-align: center;
+  text-transform: uppercase;
+  color: #4CAF50;
+}
+
+.navbar {
+    border-bottom:1px solid #EFF2F7;
+    background-color: transparent;
+}
+
+.text-sm {
+    font-size: .875rem;
+    line-height: 1.25rem;
+}
