@@ -6,6 +6,7 @@ from .forms import PitchDeckForm
 from .models import PitchDeck
 
 
+# We should probably have some pagination here.
 class HomePageView(ListView):
     model = PitchDeck
     template_name = 'home.html'

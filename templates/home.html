@@ -1,17 +1,22 @@
 {% extends 'base.html' %}
-
 {% block content %}
 
-<h1>Home Page</h1>
-
-<ul>
----
-  {% for pitch_deck in object_list %}
-    <h2>{{ pitch_deck.title }}</h2>
-    <p>
-        <a href="{{ pitch_deck.presentation_file.url}}">{{ pitch_deck.title }}</a>
-    </p>
-  {% endfor %}
+<h1>Home</h1>
+{% for pitch_deck in object_list %}
+<div class="pitch_deck">
+<h3>{{ pitch_deck.title }}</h3>
+<a href="{{ pitch_deck.presentation_file.url }}">download</a>
+<ul class="my-image-list">
+  <li>
+    {% for deck_image in pitch_deck.deck_images.all %}
+        <figure>
+          <p><img src="{{ deck_image.slide.url}}">
+          <figcaption>{{ deck_image.title }}</figcaption>
+        </figure>
+    {% endfor %}
+  </li>
 </ul>
+</div>
+{% endfor %}
 
 {% endblock %}
