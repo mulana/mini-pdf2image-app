@@ -1,23 +1,25 @@
 {% extends 'base.html' %}
 
-{% block title %}Login{% endblock %}
+{% load bootstrap4 %}
 
 {% block content %}
-<h2>Login</h2>
-<form method="post">
-  {% csrf_token %}
-{#  {{ form.as_p }}#}
-    {{ form.non_field_errors }}
-    <div class="fieldWrapper">
-        {{ form.username.errors }}
-        <label for="{{ form.username.id_for_label }}">Username:</label>
-        {{ form.username }}
+<h2 class="pt-3 pb-5">Login to your account</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+      <form method="post">
+      {% csrf_token %}
+      {% bootstrap_form form %}
+      <div class="text-center pt-3">
+          {% buttons %}
+              <button type="submit" class="btn btn-lg btn-secondary">Login</button>
+          {% endbuttons %}
+          <small>New to Wefunder? <a href="{% url 'signup' %}">Signup</a> </small>
+      </div>
+    </form>
     </div>
-    <div class="fieldWrapper">
-        {{ form.password.errors }}
-        <label for="{{ form.password.id_for_label }}">Password:</label>
-        {{ form.password }}
-    </div>
-  <button type="submit">Login</button>
-</form>
+    <div class="col-3"></div>
+  </div>
+</div>
 {% endblock %}

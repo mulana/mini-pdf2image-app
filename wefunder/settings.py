@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'pitch_decks',
     'accounts',
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [
