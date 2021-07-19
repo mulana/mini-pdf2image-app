@@ -13,7 +13,9 @@ class PitchDeckForm(forms.ModelForm):
 
     def save(self, commit=True):
         # TODO: This is not the right place to do this as we should do this during validation so we can return
-        # a meaningful message to the user
+        #       a meaningful message to the user
+        # TODO: this is uploading files to server. In a real prod system we would want something like s3 to
+        #       store files/images
         pitch_deck = None
         try:
             pitch_deck = super().save(commit)
