@@ -6,7 +6,8 @@
     TODO: perhaps shortlist that links to each deck if there are too many
     TODO: pagination is missing :(
 -->
-{% for pitch_deck in object_list %}
+{% if user.is_authenticated %}
+{% for pitch_deck in decks %}
 <div class="pitch_deck">
 <h3>{{ pitch_deck.title }}</h3>
 <a href="{{ pitch_deck.presentation_file.url }}" class="btn-outline-primary"><i class="bi bi-download"></i> Download</a>
@@ -25,6 +26,9 @@
 </ul>
 </div>
 {% endfor %}
+{% else %}
+Hello weFunder!
+{%  endif %}
 
 {% endblock %}
 
