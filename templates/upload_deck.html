@@ -4,9 +4,22 @@
 
 <h1>Create Pitch Deck Page</h1>
 <form method="post" enctype="multipart/form-data">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Submit New Pitch Deck</button>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit New Pitch Deck</button>
 </form>
 
+
+
+{% endblock %}
+
+{% block javascript %}
+<script>
+    $('form').submit(function(e) {
+        // This is a lengthy operation, at least put loading...
+        $("div.loading").addClass("show");
+
+        return true;
+    });
+</script>
 {% endblock %}

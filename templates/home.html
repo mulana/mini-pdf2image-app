@@ -2,6 +2,10 @@
 {% block content %}
 
 <h1>Home</h1>
+<!--
+    TODO: perhaps shortlist that links to each deck if there are too many
+    TODO: pagination is missing :(
+-->
 {% for pitch_deck in object_list %}
 <div class="pitch_deck">
 <h3>{{ pitch_deck.title }}</h3>
@@ -10,6 +14,7 @@
 
 <ul class="my-image-list">
   <li>
+    <!-- TODO perhaps would be more user friendly to display only e.g. 3 slides and have a show all link -->
     {% for deck_image in pitch_deck.deck_images.all %}
         <figure>
           <p><img src="{{ deck_image.slide.url}}">
